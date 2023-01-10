@@ -1,0 +1,70 @@
+
+
+<h1 class="text-danger" style="text-align: center;">Student Details</h1>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">SNO</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Actions</th>
+       
+      </tr>
+    </thead>
+     <tbody  *ngFor="let user of users">
+    <tr>
+      <td scope="col">{{user.sno}}</td>
+      <td scope="col">{{user.name}}</td>
+      <td scope="col">{{user.age}}</td>
+      <td scope="col">{{user.gender}}</td>
+      
+ <td><button  type="submit"  class="btn btn-danger ms-2"  (click)="edit()">
+    EDIT
+    </button>
+    <button type="submit" class="btn btn-danger ms-2" (click)="delete()">Delete</button>
+     </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+<div >
+
+</div>
+
+<h1 class="text-danger" style="text-align: center;">Student Particular</h1>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">CourseName</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+       
+      </tr>
+    </thead>
+     <tbody  *ngFor="let stu of student">
+    <tr>
+      <td scope="col">{{stu.name1}}</td>
+      <td scope="col">{{stu.courseName}}</td>
+      <td scope="col">{{stu.Duration}}</td>
+      <td scope="col">{{stu.email}}</td>
+      
+ <td><button  type="submit"  class="btn btn-danger ms-2"  (click)="edit()">
+    EDIT
+    </button>
+    <button type="submit" class="btn btn-danger ms-2" (click)="delete()">Delete</button>
+     </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+<div >
+
+</div>
+
+
+

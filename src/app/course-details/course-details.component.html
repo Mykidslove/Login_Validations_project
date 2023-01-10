@@ -1,0 +1,132 @@
+<p>Enter the Course details</p>
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="display-5">CourseDetails</h3>
+        </div>
+        <div class="card-body">
+            <form
+              [formGroup]="courseForm"
+              (ngSubmit)="onSubmit()"
+              autocomplete="off"
+            >
+
+            <div class="mb-3">
+            <label for="Name" class="form-label">Student Name</label>
+            <input type="text" class="form-control" formControlName="name" />
+            <span
+              class="text-danger"
+              *ngIf="
+                  (courseFormControl.name.touched || submitted) &&
+                  courseFormControl.name.errors?.['required']"
+            >
+              Student Name is required
+            </span>
+     </div>
+          <div class="mb-3">
+            <label for="coursename" class="form-label">Course Name</label>
+            <input type="text" class="form-control" formControlName="coursename" />
+            <span
+              class="text-danger"
+              *ngIf="
+                  (courseFormControl.coursename.touched || submitted) &&
+                  courseFormControl.coursename.errors?.['required']"
+            >
+              CourseName is required
+            </span>
+           
+          </div>
+          <div class="mb-3">
+            <label for="User Name" class="form-label">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                  (courseFormControl.username.touched || submitted) &&
+                  courseFormControl.username.errors?.['required']"
+            >
+              User Name is required
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                  courseFormControl.username.touched &&
+                  courseFormControl.username.errors?.['userNameNotAvailable']
+                "
+            >
+              User Name is not available
+            </span>
+          </div>
+          <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                  (courseFormControl.password.touched || submitted) &&
+                  courseFormControl.password.errors?.['required']"
+            >
+              Password is required
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                  courseFormControl.password.touched &&
+                  courseFormControl.password.errors?.['invalidPassword']"
+            >
+              Password should have minimum 8 characters, at least 1 uppercase
+              letter, 1 lowercase letter and 1 number
+            </span>
+          </div>
+          <div class="mb-3">
+            <label for="Confirm Password" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              formControlName="confirmPassword"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                  (courseFormControl.confirmPassword.touched || submitted) &&
+                  courseFormControl.confirmPassword.errors?.['required']"
+            >
+              Confirm Password is required
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                  courseFormControl.confirmPassword.touched &&
+        courseFormControl.confirmPassword.errors?.['passwordMismatch']"
+            >
+              Passwords doesnot match
+            </span>
+          </div>
+          <div align="right">
+            <button type="submit" class="btn btn-success">Register</button>
+            <button
+              type="reset"
+              class="btn btn-danger ms-2"
+              (click)="resetForm()"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+

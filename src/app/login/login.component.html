@@ -1,0 +1,84 @@
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="display-5">Login Form</h2>
+        </div>
+        <div class="card-body">
+            <form class="form"  #loginForm="ngForm">
+<div class="mb-3">
+    <label for="Email" class="form-label">Email</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="user.email"
+      name="email"
+      #email="ngModel"
+      required
+      email
+    />
+    
+
+        <div class="mb-3">
+            <label for="password" class="form-label">password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="user.password"
+              name="password"
+              #password="ngModel"
+              required
+              password
+            />
+            
+
+        <span
+          
+          [appMatchPassword]="['password', 'confirmPassword']"
+          (ngSubmit)="loginForm.form.valid && onSubmit()"
+          novalidate
+          autocomplete="off"
+        >
+        </span>
+    </div>
+    <div align="right">
+        
+
+        <button
+              type="submit"
+              class="btn btn-danger ms-2"
+              (click)="onSubmit()"
+            >
+           Login
+            
+            </button>
+       </div>
+      </div>
+   <div>
+    
+    <span
+      class="text-danger"
+      *ngIf="
+        (email.touched || loginForm.submitted) &&
+        email.errors?.required
+      "
+    >
+      Email is required
+    </span>
+    <span
+      class="text-danger"
+      *ngIf="email.touched && email.errors?.email"
+    >
+      Enter a valid email address
+    </span>
+    
+
+
+  </div>
+  </form>
+ </div>
+ 
+</div>
+</div>
+</div>
